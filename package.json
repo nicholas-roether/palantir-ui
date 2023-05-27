@@ -7,5 +7,7 @@
   },
   "scripts": {
     "build": "sass styles/main.scss dist/styles.css"
-  }
+  },
+  "files": "dist/*",
+  "style": "dist/styles.css"
 }

@@ -2,6 +2,15 @@
 
 These styles are used by the palantir browser extension, and the associated website.
 
+## How to use
+
+These styles are intended to be used with [npm-css](https://github.com/defunctzombie/npm-css). If you have set up your
+npm-css build process, you can simply include the styles in your css like so:
+
+```css
+@import "palantir-ui"
+```
+
 ## License
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
