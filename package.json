@@ -1,6 +1,6 @@
 {
   "name": "palantir-ui",
-  "license": "GPL-3.0",
+  "license": "gpl-3.0",
   "packageManager": "yarn@3.5.1",
   "devDependencies": {
     "sass": "^1.62.1"
