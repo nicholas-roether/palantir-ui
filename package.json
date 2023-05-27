@@ -1,13 +1,21 @@
 {
-  "name": "palantir-ui",
+  "name": "@nicholas-roether/palantir-ui",
+  "version": "1.0.0",
   "license": "gpl-3.0",
   "packageManager": "yarn@3.5.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicholas-roether/palantir-ui.git"
+  },
   "devDependencies": {
     "sass": "^1.62.1"
   },
   "scripts": {
-    "build": "sass styles/main.scss dist/styles.css"
+    "build": "sass styles/main.scss dist/styles.css",
+    "prepack": "yarn build"
   },
-  "files": "dist/*",
+  "files": [
+    "dist/*"
+  ],
   "style": "dist/styles.css"
 }

@@ -12,14 +12,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],\
     "dependencyTreeRoots": [\
       {\
-        "name": "palantir-ui",\
+        "name": "@nicholas-roether/palantir-ui",\
         "reference": "workspace:."\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
-      ["palantir-ui", ["workspace:."]]\
+      ["@nicholas-roether/palantir-ui", ["workspace:."]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -40,6 +40,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@gar/promisify", "npm:1.1.3"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@nicholas-roether/palantir-ui", [\
+        ["workspace:.", {\
+          "packageLocation": "./",\
+          "packageDependencies": [\
+            ["@nicholas-roether/palantir-ui", "workspace:."],\
+            ["sass", "npm:1.62.1"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["@npmcli/fs", [\
@@ -906,16 +916,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["aggregate-error", "npm:3.1.0"]\
           ],\
           "linkType": "HARD"\
-        }]\
-      ]],\
-      ["palantir-ui", [\
-        ["workspace:.", {\
-          "packageLocation": "./",\
-          "packageDependencies": [\
-            ["palantir-ui", "workspace:."],\
-            ["sass", "npm:1.62.1"]\
-          ],\
-          "linkType": "SOFT"\
         }]\
       ]],\
       ["path-is-absolute", [\
