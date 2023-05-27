@@ -1,0 +1,49 @@
+@use "../utils" as utils;
+
+@mixin copy-font-heading {
+	font-family: var(--pui-font-copy);
+	font-weight: bold;
+}
+
+.pui-heading {
+	font-family: var(--pui-font-heading);
+	margin-bottom: 15px;
+
+	@include utils.for-tag("h1") {
+		font-size: 3em;
+		line-height: 1.4em;
+	}
+
+	@include utils.for-tag("h2") {
+		font-size: 2em;
+		line-height: 1.3em;
+	}
+
+	@include utils.for-tag("h3") {
+		font-size: 1.75em;
+	}
+
+	@include utils.for-tag("h4") {
+		@include copy-font-heading;
+		font-size: 1.5em;
+	}
+
+	@include utils.for-tag("h5") {
+		@include copy-font-heading;
+		font-size: 1.35em;
+	}
+
+	@include utils.for-tag("h6") {
+			@include copy-font-heading;
+		font-size: 1.2em;
+	}
+}
+
+.pui-paragraph {
+	font-family: var(--pui-font-copy);
+	margin-bottom: 20px;
+}
+
+.pui-span {
+	font-family: var(--pui-font-copy);
+}

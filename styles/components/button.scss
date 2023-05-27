@@ -1,0 +1,119 @@
+@mixin smolder-glow($size) {
+	$color: var(--pui-color-secondary);
+	$blur-radius: 5px + $size * 15px;
+	box-shadow: 0 0 $blur-radius 0 $color;
+}
+
+@keyframes smolder {
+	0% { @include smolder-glow(0.5) }
+	5% { @include smolder-glow(0.69) }
+	10% { @include smolder-glow(0.35) }
+	15% { @include smolder-glow(0.56) }
+	20% { @include smolder-glow(0.8) }
+	25% { @include smolder-glow(0.14) }
+	30% { @include smolder-glow(0.28) }
+	35% { @include smolder-glow(0.21) }
+	40% { @include smolder-glow(0.84) }
+	45% { @include smolder-glow(0.52) }
+	50% { @include smolder-glow(0.93) }
+	55% { @include smolder-glow(0.72) }
+	60% { @include smolder-glow(0.99) }
+	65% { @include smolder-glow(0.21) }
+	70% { @include smolder-glow(0.26) }
+	75% { @include smolder-glow(0.55) }
+	80% { @include smolder-glow(0.77) }
+	85% { @include smolder-glow(0.04) }
+	90% { @include smolder-glow(0.08) }
+	95% { @include smolder-glow(0.19) }
+	100% { @include smolder-glow(0.5) }
+}
+
+.pui-button {
+	$corner-size: 15px;
+	$corner-offset: 10px;
+	$padding: 0.4em;
+	$hover-growth: 1.05;
+	$hover-offset: 2px;
+	$transition-color: 0.2s;
+	$transition-growth: 0.3s;
+	$transition-click: 0.1s;
+
+	$transition-transform: transform $transition-growth ease-out;
+
+	font-family: var(--pui-font-copy);
+	color: var(--pui-color-text);
+	background-color: var(--pui-color-primary);
+	font-size: 1em;
+	font-weight: bold;
+	cursor: pointer;
+	padding: $padding;
+	min-width: 7em;
+	border-radius: none;
+	border: var(--pui-color-surface) 5px solid;
+	position: relative;
+
+	box-shadow: 0 0 6px 0 #000;
+	transition: background-color $transition-color linear, box-shadow $transition-click ease-out;
+	
+	&::before {
+		transition: $transition-transform;
+
+		content: "";
+		display: block;
+		position: absolute;
+		top: -$corner-offset;
+		left: -$corner-offset;
+		border-top: var(--pui-color-surface) $corner-size solid;
+		border-left: var(--pui-color-surface) $corner-size solid;
+		border-bottom: transparent $corner-size solid;
+		border-right: transparent $corner-size solid;	
+	}
+
+	&::after {
+		transition: $transition-transform;
+
+		content: "";
+		display: block;
+		position: absolute;
+		bottom: -$corner-offset;
+		right: -$corner-offset;
+		border-bottom: var(--pui-color-surface) $corner-size solid;
+		border-right: var(--pui-color-surface) $corner-size solid;
+		border-top: transparent $corner-size solid;
+		border-left: transparent $corner-size solid;
+	}
+
+	&:hover {
+		background-color: var(--pui-color-primary-light);
+
+		&::before {
+			transform: translate(-$hover-offset, -$hover-offset);
+		}
+
+		&::after {
+			transform: translate($hover-offset, $hover-offset);
+		}
+	}
+
+	&:active {
+		box-shadow: 0 0 0 0 #000;
+
+		&::before {
+			transition-duration: $transition-click;
+			transform: translate($hover-offset, $hover-offset);
+		}
+
+		&::after {
+			transition-duration: $transition-click;
+			transform: translate(-$hover-offset, $hover-offset);
+		}
+	}
+
+	&.pui-large {
+		font-size: 1.4em;
+	}
+
+	&.pui-smoldering {
+		animation: smolder 4s linear infinite;
+	}
+}
