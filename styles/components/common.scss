@@ -1,8 +1,8 @@
 @use "sass:math" as math;
 
 @mixin hover-corner($slot, $posV, $posH, $size, $color) {
-	$offset: math.div($size, 3);
-	$movement: math.div($offset, 4);
+	$offset: 10px;
+	$movement: 3px;
 	$border-width: math.div($size, 2);
 
 	position: relative;
@@ -37,7 +37,7 @@
 		transform: translate($translateX, $translateY);
 	}
 
-	&:active::#{$slot} {
+	&:active::#{$slot}, &:focus::#{$slot}, &:focus-within::#{$slot} {
 		$translateX: $movement;
 		$translateY: $movement;
 
@@ -51,4 +51,8 @@
 		transition-duration: var(--pui-duration-click);
 		transform: translate($translateX, $translateY);
 	}
+}
+
+@mixin shadow {
+	box-shadow: 0 0 6px 0 #000;
 }

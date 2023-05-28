@@ -38,6 +38,7 @@ button.pui-button, a.pui-button, input[type="submit"].pui-button {
 
 	@include hover-corner(before, top, left, $corner-size, $border-color);
 	@include hover-corner(after, bottom, right, $corner-size, $border-color);
+	@include shadow;
 	
 	display: inline-block;
 	text-align: center;
@@ -53,8 +54,6 @@ button.pui-button, a.pui-button, input[type="submit"].pui-button {
 	border-radius: 0;
 	border: $border-color 5px solid;
 
-
-	box-shadow: 0 0 6px 0 #000;
 	transition:
 		background-color var(--pui-duration-hover) linear,
 		border-color var(--pui-duration-click) linear,

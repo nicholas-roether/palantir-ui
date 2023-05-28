@@ -1,0 +1,39 @@
+@use "../utils" as *;
+@use "common" as *;
+
+span.pui-input {
+	$corner-size-large: 35px;
+	$corner-size-small: 25px;
+	$border-color: var(--pui-color-highlight);
+	$border-color-focus: var(--pui-color-active);
+	$padding: 0.4em;
+	
+	@include shadow;
+	@include hover-corner(after, top, right, $corner-size-large, $border-color);
+	@include hover-corner(before, bottom, left, $corner-size-small, $border-color);
+
+	display: inline-block;
+	background-color: var(--pui-color-surface);
+	border: $border-color 4px solid;
+
+	&:focus-within {
+		@include hover-corner(after, top, right, $corner-size-large, $border-color-focus);
+		@include hover-corner(before, bottom, left, $corner-size-small, $border-color-focus);
+
+		border-color: $border-color-focus;
+	}
+
+	& > input {
+		font-size: 1em;
+		font-family: var(--pui-font-copy);
+		min-width: 7em;
+		border: none;
+		background: transparent;
+		color: var(--pui-color-text);
+		padding: $padding;
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
