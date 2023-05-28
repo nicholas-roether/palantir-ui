@@ -23,6 +23,8 @@
 	position: relative;
 
 	&::#{$slot} {
+		@include drop-shadow;
+
 		transition: transform var(--pui-duration-hover) ease-out, border-color var(--pui-duration-click) linear;
 
 		content: "";
@@ -65,4 +67,8 @@
 
 @mixin shadow {
 	box-shadow: 0 0 6px 0 #000;
+}
+
+@mixin drop-shadow {
+	filter: drop-shadow(0 0 6px #000);
 }
