@@ -37,7 +37,10 @@
 
 	@include hover-corner(before, top, left, $corner-size, $border-color);
 	@include hover-corner(after, bottom, right, $corner-size, $border-color);
-
+	
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
 	font-family: var(--pui-font-copy);
 	color: var(--pui-color-text);
 	background-color: var(--pui-color-primary);
