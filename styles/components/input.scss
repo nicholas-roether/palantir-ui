@@ -16,6 +16,8 @@ span.pui-input {
 	background-color: var(--pui-color-surface);
 	border: $border-color 4px solid;
 
+	transition: border-color var(--pui-duration-click) linear;
+
 	&:focus-within {
 		@include hover-corner(after, top, right, $corner-size-large, $border-color-focus, true);
 		@include hover-corner(before, bottom, left, $corner-size-small, $border-color-focus, true);
