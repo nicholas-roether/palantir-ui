@@ -12,6 +12,7 @@
 	@include utils.for-tag("h1") {
 		font-size: 3em;
 		line-height: 1.4em;
+		text-align: center;
 	}
 
 	@include utils.for-tag("h2") {
