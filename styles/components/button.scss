@@ -1,7 +1,7 @@
 @use "common" as *;
 
 @mixin smolder-glow($size) {
-	$color: var(--pui-color-secondary);
+	$color: var(--pui-color-active);
 	$blur-radius: 5px + $size * 15px;
 	box-shadow: 0 0 $blur-radius 0 $color;
 }
@@ -33,7 +33,7 @@
 button.pui-button, a.pui-button, input[type="submit"].pui-button {
 	$corner-size: 30px;
 	$border-color: var(--pui-color-surface);
-	$border-color-active: var(--pui-color-secondary);
+	$border-color-active: var(--pui-color-active);
 	$padding: 0.4em;
 	$duration-hover-transition: 0.2s;
 	$duration-click-transition: 0.1s;
@@ -46,7 +46,7 @@ button.pui-button, a.pui-button, input[type="submit"].pui-button {
 	text-decoration: none;
 	font-family: var(--pui-font-copy);
 	color: var(--pui-color-text);
-	background-color: var(--pui-color-primary);
+	background-color: var(--pui-color-highlight);
 	font-size: 1em;
 	font-weight: bold;
 	cursor: pointer;
@@ -64,12 +64,12 @@ button.pui-button, a.pui-button, input[type="submit"].pui-button {
 	
 	
 	&:hover {
-		background-color: var(--pui-color-primary-light);
+		background-color: var(--pui-color-highlight-light);
 	}
 
 	&:active {
 		box-shadow: 0 0 0 0 #000;
-		border-color: var(--pui-color-secondary);
+		border-color: var(--pui-color-active);
 		@include hover-corner(before, top, left, $corner-size, $border-color-active);
 		@include hover-corner(after, bottom, right, $corner-size, $border-color-active);
 	}
