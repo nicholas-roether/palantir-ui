@@ -30,7 +30,7 @@
 	100% { @include smolder-glow(0.5) }
 }
 
-.pui-button {
+button.pui-button, a.pui-button, input[type="submit"].pui-button {
 	$corner-size: 30px;
 	$border-color: var(--pui-color-surface);
 	$padding: 0.4em;
