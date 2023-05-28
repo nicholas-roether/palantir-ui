@@ -1,8 +1,8 @@
 @use "sass:math" as math;
 
 @mixin hover-corner($slot, $posV, $posH, $size, $color) {
-	$duration-move-hover: 0.3s;
-	$duration-move-click: 0.1s;
+	$duration-hover: 0.3s;
+	$duration-click: 0.1s;
 	$offset: math.div($size, 3);
 	$movement: math.div($offset, 4);
 	$border-width: math.div($size, 2);
@@ -10,7 +10,7 @@
 	position: relative;
 
 	&::#{$slot} {
-		transition: transform $duration-move-hover ease-out;
+		transition: transform $duration-hover ease-out, border-color $duration-click linear;
 
 		content: "";
 		display: block;
@@ -50,7 +50,7 @@
 			$translateX: -$movement;
 		}
 		
-		transition-duration: $duration-move-click;
+		transition-duration: $duration-click;
 		transform: translate($translateX, $translateY);
 	}
 }

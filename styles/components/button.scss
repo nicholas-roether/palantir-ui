@@ -33,7 +33,10 @@
 button.pui-button, a.pui-button, input[type="submit"].pui-button {
 	$corner-size: 30px;
 	$border-color: var(--pui-color-surface);
+	$border-color-active: var(--pui-color-secondary);
 	$padding: 0.4em;
+	$duration-hover-transition: 0.2s;
+	$duration-click-transition: 0.1s;
 
 	@include hover-corner(before, top, left, $corner-size, $border-color);
 	@include hover-corner(after, bottom, right, $corner-size, $border-color);
@@ -54,7 +57,10 @@ button.pui-button, a.pui-button, input[type="submit"].pui-button {
 
 
 	box-shadow: 0 0 6px 0 #000;
-	transition: background-color 0.2s linear, box-shadow 0.1s ease-out;
+	transition:
+		background-color $duration-hover-transition linear,
+		border-color $duration-click-transition linear,
+		box-shadow $duration-click-transition ease-out;
 	
 	
 	&:hover {
@@ -63,6 +69,9 @@ button.pui-button, a.pui-button, input[type="submit"].pui-button {
 
 	&:active {
 		box-shadow: 0 0 0 0 #000;
+		border-color: var(--pui-color-secondary);
+		@include hover-corner(before, top, left, $corner-size, $border-color-active);
+		@include hover-corner(after, bottom, right, $corner-size, $border-color-active);
 	}
 
 	&.pui-large {
