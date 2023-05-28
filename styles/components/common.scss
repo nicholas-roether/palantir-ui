@@ -1,0 +1,56 @@
+@use "sass:math" as math;
+
+@mixin hover-corner($slot, $posV, $posH, $size, $color) {
+	$duration-move-hover: 0.3s;
+	$duration-move-click: 0.1s;
+	$offset: math.div($size, 3);
+	$movement: math.div($offset, 4);
+	$border-width: math.div($size, 2);
+
+	position: relative;
+
+	&::#{$slot} {
+		transition: transform $duration-move-hover ease-out;
+
+		content: "";
+		display: block;
+		width: 0;
+		height: 0;
+		position: absolute;
+		#{$posV}: -$offset;
+		#{$posH}: -$offset;
+		border: transparent $border-width solid;
+		border-#{$posV}: $color $border-width solid;
+		border-#{$posH}: $color $border-width solid;
+	}
+
+	&:hover::#{$slot} {
+		$translateX: $movement;
+		$translateY: $movement;
+
+		@if $posV == top {
+			$translateY: -$movement;
+		}
+		@if $posH == left {
+			$translateX: -$movement;
+		}
+
+
+		transform: translate($translateX, $translateY);
+	}
+
+	&:active::#{$slot} {
+		$translateX: $movement;
+		$translateY: $movement;
+
+		@if $posV == bottom {
+			$translateY: -$movement;
+		}
+		@if $posH == right {
+			$translateX: -$movement;
+		}
+		
+		transition-duration: $duration-move-click;
+		transform: translate($translateX, $translateY);
+	}
+}

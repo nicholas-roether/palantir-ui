@@ -1,3 +1,5 @@
+@use "common" as *;
+
 @mixin smolder-glow($size) {
 	$color: var(--pui-color-secondary);
 	$blur-radius: 5px + $size * 15px;
@@ -29,16 +31,12 @@
 }
 
 .pui-button {
-	$corner-size: 15px;
-	$corner-offset: 10px;
+	$corner-size: 30px;
+	$border-color: var(--pui-color-surface);
 	$padding: 0.4em;
-	$hover-growth: 1.05;
-	$hover-offset: 2px;
-	$transition-color: 0.2s;
-	$transition-growth: 0.3s;
-	$transition-click: 0.1s;
 
-	$transition-transform: transform $transition-growth ease-out;
+	@include hover-corner(before, top, left, $corner-size, $border-color);
+	@include hover-corner(after, bottom, right, $corner-size, $border-color);
 
 	font-family: var(--pui-font-copy);
 	color: var(--pui-color-text);
@@ -48,65 +46,20 @@
 	cursor: pointer;
 	padding: $padding;
 	min-width: 7em;
-	border-radius: none;
-	border: var(--pui-color-surface) 5px solid;
-	position: relative;
+	border-radius: 0;
+	border: $border-color 5px solid;
+
 
 	box-shadow: 0 0 6px 0 #000;
-	transition: background-color $transition-color linear, box-shadow $transition-click ease-out;
+	transition: background-color 0.2s linear, box-shadow 0.1s ease-out;
 	
-	&::before {
-		transition: $transition-transform;
-
-		content: "";
-		display: block;
-		position: absolute;
-		top: -$corner-offset;
-		left: -$corner-offset;
-		border-top: var(--pui-color-surface) $corner-size solid;
-		border-left: var(--pui-color-surface) $corner-size solid;
-		border-bottom: transparent $corner-size solid;
-		border-right: transparent $corner-size solid;	
-	}
-
-	&::after {
-		transition: $transition-transform;
-
-		content: "";
-		display: block;
-		position: absolute;
-		bottom: -$corner-offset;
-		right: -$corner-offset;
-		border-bottom: var(--pui-color-surface) $corner-size solid;
-		border-right: var(--pui-color-surface) $corner-size solid;
-		border-top: transparent $corner-size solid;
-		border-left: transparent $corner-size solid;
-	}
-
+	
 	&:hover {
 		background-color: var(--pui-color-primary-light);
-
-		&::before {
-			transform: translate(-$hover-offset, -$hover-offset);
-		}
-
-		&::after {
-			transform: translate($hover-offset, $hover-offset);
-		}
 	}
 
 	&:active {
 		box-shadow: 0 0 0 0 #000;
-
-		&::before {
-			transition-duration: $transition-click;
-			transform: translate($hover-offset, $hover-offset);
-		}
-
-		&::after {
-			transition-duration: $transition-click;
-			transform: translate(-$hover-offset, $hover-offset);
-		}
 	}
 
 	&.pui-large {
