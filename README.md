@@ -8,7 +8,7 @@ In order to use these styles, you need a bundler that supports importing css fil
 When css imports are set up, simply import the package somewhere in your code:
 
 ```ts
-import "@nicholas-roether/palantir-ui";
+import "@nicholas-roether/palantir-ui/styles.css";
 ```
 
 ## License
