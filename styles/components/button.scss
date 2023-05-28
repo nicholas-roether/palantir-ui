@@ -36,8 +36,8 @@ button.pui-button, a.pui-button, input[type="submit"].pui-button {
 	$border-color-active: var(--pui-color-active);
 	$padding: 0.4em;
 
-	@include hover-corner(before, top, left, $corner-size, $border-color);
-	@include hover-corner(after, bottom, right, $corner-size, $border-color);
+	@include hover-corner(before, top, left, $corner-size, $border-color, false);
+	@include hover-corner(after, bottom, right, $corner-size, $border-color, false);
 	@include shadow;
 	
 	display: inline-block;
@@ -67,8 +67,8 @@ button.pui-button, a.pui-button, input[type="submit"].pui-button {
 	&:active {
 		box-shadow: 0 0 0 0 #000;
 		border-color: var(--pui-color-active);
-		@include hover-corner(before, top, left, $corner-size, $border-color-active);
-		@include hover-corner(after, bottom, right, $corner-size, $border-color-active);
+		@include hover-corner(before, top, left, $corner-size, $border-color-active, false);
+		@include hover-corner(after, bottom, right, $corner-size, $border-color-active, false);
 	}
 
 	&.pui-large {

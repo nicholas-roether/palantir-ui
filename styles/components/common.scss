@@ -1,6 +1,21 @@
 @use "sass:math" as math;
 
-@mixin hover-corner($slot, $posV, $posH, $size, $color) {
+@mixin clamp($posV, $posH, $movement) {
+	$translateX: $movement;
+	$translateY: $movement;
+
+	@if $posV == bottom {	
+		$translateY: -$movement;
+	}
+	@if $posH == right {
+		$translateX: -$movement;
+	}
+	
+	transition-duration: var(--pui-duration-click);
+	transform: translate($translateX, $translateY);
+}
+
+@mixin hover-corner($slot, $posV, $posH, $size, $color, $clamp-on-focus) {
 	$offset: 10px;
 	$movement: 3px;
 	$border-width: math.div($size, 2);
@@ -35,21 +50,16 @@
 
 
 		transform: translate($translateX, $translateY);
+	}	
+
+	&:active::#{$slot} {
+		@include clamp($posV, $posH, $movement);
 	}
 
-	&:active::#{$slot}, &:focus::#{$slot}, &:focus-within::#{$slot} {
-		$translateX: $movement;
-		$translateY: $movement;
-
-		@if $posV == bottom {
-			$translateY: -$movement;
+	@if $clamp-on-focus {
+		&:focus::#{$slot}, &:focus-within::#{$slot} {
+			@include clamp($posV, $posH, $movement);
 		}
-		@if $posH == right {
-			$translateX: -$movement;
-		}
-		
-		transition-duration: var(--pui-duration-click);
-		transform: translate($translateX, $translateY);
 	}
 }
 

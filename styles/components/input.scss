@@ -9,16 +9,16 @@ span.pui-input {
 	$padding: 0.4em;
 	
 	@include shadow;
-	@include hover-corner(after, top, right, $corner-size-large, $border-color);
-	@include hover-corner(before, bottom, left, $corner-size-small, $border-color);
+	@include hover-corner(after, top, right, $corner-size-large, $border-color, true);
+	@include hover-corner(before, bottom, left, $corner-size-small, $border-color, true);
 
 	display: inline-block;
 	background-color: var(--pui-color-surface);
 	border: $border-color 4px solid;
 
 	&:focus-within {
-		@include hover-corner(after, top, right, $corner-size-large, $border-color-focus);
-		@include hover-corner(before, bottom, left, $corner-size-small, $border-color-focus);
+		@include hover-corner(after, top, right, $corner-size-large, $border-color-focus, true);
+		@include hover-corner(before, bottom, left, $corner-size-small, $border-color-focus, true);
 
 		border-color: $border-color-focus;
 	}
