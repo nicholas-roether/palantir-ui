@@ -1,6 +1,6 @@
 {
   "name": "@nicholas-roether/palantir-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "gpl-3.0",
   "packageManager": "yarn@3.5.1",
   "repository": {
@@ -17,5 +17,5 @@
   "files": [
     "dist/*"
   ],
-  "style": "dist/styles.css"
+  "exports": "dist/styles.css"
 }
