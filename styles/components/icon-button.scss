@@ -1,0 +1,27 @@
+@use "common" as *;
+
+button.pui-icon-button {
+	background: none;
+	color: var(--pui-color-text);
+	font-size: 1.1em;
+	width: 1.5em;
+	height: 1.5em;
+	border: none;
+	border-radius: 0.75em;
+	cursor: pointer;
+	transition: 
+		background-color var(--pui-duration-hover),
+		filter var(--pui-duration-hover),
+		color var(--pui-duration-hover);
+
+	&:hover {
+		background-color: var(--pui-color-active);
+		color: var(--pui-color-text-on-active);
+		filter: drop-shadow(0 0 10px var(--pui-color-active));
+	}
+
+	&:active {
+		transition: filter var(--pui-duration-click);
+		filter: drop-shadow(0 0 0 var(--pui-color-active));
+	}
+}
