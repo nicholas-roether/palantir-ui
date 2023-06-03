@@ -1,7 +1,7 @@
 @use "common" as *;
 
 .pui-surface {
-	@include shadow;
+	@extend .pui-shadow;
 
 	background-color: var(--pui-color-surface);
 }

@@ -1,44 +1,14 @@
 @use "common" as *;
 
-@mixin smolder-glow($size) {
-	$color: var(--pui-color-active);
-	$blur-radius: 5px + $size * 15px;
-	box-shadow: 0 0 $blur-radius 0 $color;
-}
-
-@keyframes smolder {
-	0% { @include smolder-glow(0.5) }
-	5% { @include smolder-glow(0.69) }
-	10% { @include smolder-glow(0.35) }
-	15% { @include smolder-glow(0.56) }
-	20% { @include smolder-glow(0.8) }
-	25% { @include smolder-glow(0.14) }
-	30% { @include smolder-glow(0.28) }
-	35% { @include smolder-glow(0.21) }
-	40% { @include smolder-glow(0.84) }
-	45% { @include smolder-glow(0.52) }
-	50% { @include smolder-glow(0.93) }
-	55% { @include smolder-glow(0.72) }
-	60% { @include smolder-glow(0.99) }
-	65% { @include smolder-glow(0.21) }
-	70% { @include smolder-glow(0.26) }
-	75% { @include smolder-glow(0.55) }
-	80% { @include smolder-glow(0.77) }
-	85% { @include smolder-glow(0.04) }
-	90% { @include smolder-glow(0.08) }
-	95% { @include smolder-glow(0.19) }
-	100% { @include smolder-glow(0.5) }
-}
-
 button.pui-button, a.pui-button, input[type="submit"].pui-button {
 	$corner-size: 30px;
 	$border-color: var(--pui-color-surface);
 	$border-color-active: var(--pui-color-active);
 	$padding: 0.4em;
 
+	@extend .pui-drop-shadow;
 	@include hover-corner(before, top, left, $corner-size, $border-color, false);
 	@include hover-corner(after, bottom, right, $corner-size, $border-color, false);
-	@include shadow;
 	
 	display: inline-block;
 	text-align: center;
@@ -73,9 +43,5 @@ button.pui-button, a.pui-button, input[type="submit"].pui-button {
 
 	&.pui-large {
 		font-size: 1.4em;
-	}
-
-	&.pui-smoldering {
-		animation: smolder 4s linear infinite;
 	}
 }
