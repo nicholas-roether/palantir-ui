@@ -23,8 +23,6 @@
 	position: relative;
 
 	&::#{$slot} {
-		@extends .pui-drop-shadow;
-
 		transition: transform var(--pui-duration-hover) ease-out, border-color var(--pui-duration-click) linear;
 
 		content: "";

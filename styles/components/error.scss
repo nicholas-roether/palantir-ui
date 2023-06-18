@@ -1,0 +1,8 @@
+@use "common" as *;
+
+.pui-error {
+	@extend .pui-shadow;
+
+	background-color: var(--pui-color-error);
+	font-weight: bold;
+}

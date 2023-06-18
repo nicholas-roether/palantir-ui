@@ -8,7 +8,7 @@ span.pui-input {
 	$border-color-focus: var(--pui-color-active);
 	$padding: 0.4em;
 	
-	@extend .pui-shadow;
+	@extend .pui-drop-shadow;
 	@include hover-corner(after, top, right, $corner-size-large, $border-color, true);
 	@include hover-corner(before, bottom, left, $corner-size-small, $border-color, true);
 
